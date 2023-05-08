@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #f9f8fc;
+}
+
+.contenedor {
+  padding: 0px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+}
+
+.columnas {
+  height: 100px;
+  margin: 0px;
+  width: 50%;
+  display: flex;
+  justify-content: end;
+}
+
+.filas {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+nav ul li a {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 5px;
+  padding: 0px 18px 0px 18px;
+}
+
+.enlace {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: none;
+  height: 100px;
+}
+
+.filas:hover {
+  background-color: white;
+  color: black;
+}
+
+.enlace:hover {
+  color: black;
+}
+
+#final {
+  margin-right: 50px;
+}
+#logo {
+  color: white;
+  display: flex;
+  height: 100px;
+  width: 50%;
+  justify-content: start;
+}
+
+#logo h1 {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  padding-left: 0px;
+}
+
+#logo img {
+  padding: 15px;
+  height: auto;
+  width: auto;
+}
