@@ -1,21 +1,19 @@
 <?php
-class Cconexion
-{
-    function ConexionBD()
-    {
-        $host = "localhost";
-        $dbname = "disfraz";
-        $username = "root";
-        $pasword = "";
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $pasword);
-        } catch (PDOException $exp) {
-            echo ("No se logro conectar correctamente con la base de datos : --$dbname, error :$exp");
 
-        }
+function ConexionBD()
+{
+    $host = "localhost";
+    $database = "disfraz";
+    $username = "root";
+    $password = "";
+
+    $conn = mysqli_connect($host, $username, $password, $database);
+
+    if (!$conn) {
+        die("Error de conexión: " . mysqli_connect_error());
+    } else {
         return $conn;
     }
 
 }
-
 ?>
