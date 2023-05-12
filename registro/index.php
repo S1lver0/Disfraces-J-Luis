@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +11,11 @@
     <link rel="shortcut icon" href="sopas.png">
     <title>Compiladores</title>
 </head>
+
 <body>
-    <?php 
-        include("../navegacion/nav.php");
-    
+    <?php
+    include("../navegacion/nav.php");
+
     ?>
     <form method="post" id="registro">
         <div class="pantalla">
@@ -59,10 +61,10 @@
                     <br>
                     <br>
                     <label for="">Nombre:</label>
-                    <input class="disimput"type="text"id="in1">
+                    <input class="disimput" type="text" id="in1">
                     <br>
                     <label for="">Tematica:</label>
-                    <input class="disimput" type="text"id="in2">
+                    <input class="disimput" type="text" id="in2">
                     <br>
                     <label for="">Talla:</label>
                     <input class="disimput" type="text" id="in3">
@@ -71,17 +73,17 @@
                     <input class="disimput" type="number" min="1" id="in4">
                     <br>
                     <label for="">Precio:</label>
-                    <input class="disimput" type="number"  min="0.1"id="in5">
+                    <input class="disimput" type="number" min="0.1" id="in5">
                     <br>
-                    <input id="add" type="button" name="agregar" value="Agregar" class="enviar"> 
+                    <input id="add" type="button" name="agregar" value="Agregar" class="enviar">
                 </div>
 
-                
+
             </div>
             <div id="tabla">
                 <div class="titulo_dis">
-                <h1>Disfrazes</h1>
-                
+                    <h1>Disfrazes</h1>
+
                 </div>
                 <br>
                 <div class="centrar">
@@ -89,13 +91,27 @@
                     <table>
                         <thead>
                             <tr>
-                                <td scope="col"><h4 class="sub">Acciones</h1></td>
-                                <td scope="col"><h4 class="sub">Nombre</h1></td>
-                                <td scope="col"><h4 class="sub">Tematica</h1></td>
-                                <td scope="col"><h4 class="sub">Talla</h1></td>
-                                <td scope="col"><h4 class="sub">Cantidad</h1></td>
-                                <td scope="col"><h4 class="sub">Precio c/u</h1></td>
-                                <td scope="col"><h4 class="sub">Precio Total</h1></td>
+                                <td scope="col">
+                                    <h4 class="sub">Acciones</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Nombre</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Tematica</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Talla</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Cantidad</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Precio c/u</h1>
+                                </td>
+                                <td scope="col">
+                                    <h4 class="sub">Precio Total</h1>
+                                </td>
                             </tr>
                         </thead>
                         <tbody id="fields">
@@ -103,13 +119,13 @@
                         </tbody>
                         <tbody>
                             </tr>
-                                <td colspan="6">Precio Total</td>
-                                <td><input  id="precio_del_disfraz" name="Precio_dis" value=" " readonly></td>
+                            <td colspan="6">Precio Total</td>
+                            <td><input id="precio_del_disfraz" name="Precio_dis" value=" " readonly></td>
                             </tr>
                         </tbody>
-                    </table>  
+                    </table>
                     <br>
-                    <br> 
+                    <br>
                 </div>
             </div>
             <br>
@@ -119,107 +135,107 @@
     </form>
     <br>
     <br>
-    
+
     <script>
 
-            var campo8_value =0;
-            $(document).ready(function() {
-                $("#add").click(function() {
+        var campo8_value = 0;
+        $(document).ready(function () {
+            $("#add").click(function () {
 
-                    var campo2_value = $('#in1').val();
-                    var campo3_value = $('#in2').val();
-                    var campo4_value = $('#in3').val();
-                    var campo5_value = $('#in4').val();
-                    var campo6_value = $('#in5').val();
-                    var campo7_value = campo5_value*campo6_value;
-                    campo8_value += campo7_value;
-                    
-                    $('#precio_del_disfraz').val(campo8_value);
+                var campo2_value = $('#in1').val();
+                var campo3_value = $('#in2').val();
+                var campo4_value = $('#in3').val();
+                var campo5_value = $('#in4').val();
+                var campo6_value = $('#in5').val();
+                var campo7_value = campo5_value * campo6_value;
+                campo8_value += campo7_value;
 
-                    var html = '<tr>';
-                    html += '<td class="acciones"><i class="bx bxs-edit-alt editar-fila"></i><i class="bx bxs-message-alt-x eliminar-fila"></i></th>';
-                    
-                    html += '<td><input class="editable" name="Nombre[]" value="' + campo2_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Tematica[]" value="' + campo3_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Talla[]" value="' + campo4_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Cantidad[]" value="' + campo5_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Precio[]" value="' + campo6_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Precio_T[]" id=Precio_Total value="' + campo7_value + '" readonly></td>';
-                    html += '</tr>';
-                    $("#fields").append(html);
+                $('#precio_del_disfraz').val(campo8_value);
+
+                var html = '<tr>';
+                html += '<td class="acciones"><i class="bx bxs-edit-alt editar-fila"></i><i class="bx bxs-message-alt-x eliminar-fila"></i></th>';
+
+                html += '<td><input class="editable" name="Nombre[]" value="' + campo2_value + '" readonly></td>';
+                html += '<td><input class="editable" name="Tematica[]" value="' + campo3_value + '" readonly></td>';
+                html += '<td><input class="editable" name="Talla[]" value="' + campo4_value + '" readonly></td>';
+                html += '<td><input class="editable" name="Cantidad[]" value="' + campo5_value + '" readonly></td>';
+                html += '<td><input class="editable" name="Precio[]" value="' + campo6_value + '" readonly></td>';
+                html += '<td><input class="editable" name="Precio_T[]" id=Precio_Total value="' + campo7_value + '" readonly></td>';
+                html += '</tr>';
+                $("#fields").append(html);
 
 
-    
-                    $('#in1').val('');
-                    $('#in2').val('');
-                    $('#in3').val('');
-                    $('#in4').val('');
-                    $('#in5').val('');
 
-                    
-                });
-                
-                $(document).on("click", ".eliminar-fila", function() {
-                    
-                    $(this).closest("tr").remove();
-                    
-                    var fila = $(this).closest("tr"); // Encuentra la fila más cercana
-                    var datos = []; // Arreglo para almacenar los datos de la fila
+                $('#in1').val('');
+                $('#in2').val('');
+                $('#in3').val('');
+                $('#in4').val('');
+                $('#in5').val('');
 
-                    // Iterar sobre cada celda de la fila y obtener su contenido
-                    fila.find("td").each(function() {
-                        var contenido = $(this).find('input').val(); // Obtener el texto de la celda
-                        datos.push(contenido); // Agregar el contenido al arreglo
-                    });
-                    console.log(datos)
-                    console.log(datos[4])
-                    console.log(datos[5])
-                    campo8_value -= datos[4]*datos[5]
-                    $('#precio_del_disfraz').val(campo8_value);
-                    $(this).closest("tr").remove();
 
-                });
-                $(document).on("click", ".editar-fila", function() {
-                    var fila = $(this).closest("tr");
-                    var campos = fila.find(".editable");
-                    
-                    
-
-                    if (campos.prop("readonly")) {
-                        campos.prop("readonly", false);
-                        $(this).removeClass("bx bxs-edit-alt").addClass("bx bxs-check-square");
-                        var celdas = $(this).closest("tr");
-                        var datos = [];
-                        celdas.find("td").each(function() {
-                            var contenido = $(this).find('input').val(); 
-                            datos.push(contenido); 
-                        });
-                        campo8_value -= datos[4]*datos[5]
-
-                    $('#precio_del_disfraz').val(campo8_value);
-                    } else {
-                        campos.prop("readonly", true);
-                        $(this).removeClass("bx bxs-check-square").addClass("bx bxs-edit-alt");
-                        
-                        var n_celdas = $(this).closest("tr");
-    
-                        var n_datos = [];
-                        n_celdas.find("td").each(function() {
-                            var n_contenido = $(this).find('input').val(); 
-                            n_datos.push(n_contenido); 
-                        });
-                        campo8_value+=n_datos[4]*n_datos[5];
-                        $('#precio_del_disfraz').val(campo8_value);
-                        $(this).closest("tr").find("#Precio_Total").val(n_datos[4]*n_datos[5]);
-                        
-                    }
-                });
             });
-        </script>
-    <?php 
-        include("bd.php");
+
+            $(document).on("click", ".eliminar-fila", function () {
+
+                $(this).closest("tr").remove();
+
+                var fila = $(this).closest("tr"); // Encuentra la fila más cercana
+                var datos = []; // Arreglo para almacenar los datos de la fila
+
+                // Iterar sobre cada celda de la fila y obtener su contenido
+                fila.find("td").each(function () {
+                    var contenido = $(this).find('input').val(); // Obtener el texto de la celda
+                    datos.push(contenido); // Agregar el contenido al arreglo
+                });
+                console.log(datos)
+                console.log(datos[4])
+                console.log(datos[5])
+                campo8_value -= datos[4] * datos[5]
+                $('#precio_del_disfraz').val(campo8_value);
+                $(this).closest("tr").remove();
+
+            });
+            $(document).on("click", ".editar-fila", function () {
+                var fila = $(this).closest("tr");
+                var campos = fila.find(".editable");
+
+
+
+                if (campos.prop("readonly")) {
+                    campos.prop("readonly", false);
+                    $(this).removeClass("bx bxs-edit-alt").addClass("bx bxs-check-square");
+                    var celdas = $(this).closest("tr");
+                    var datos = [];
+                    celdas.find("td").each(function () {
+                        var contenido = $(this).find('input').val();
+                        datos.push(contenido);
+                    });
+                    campo8_value -= datos[4] * datos[5]
+
+                    $('#precio_del_disfraz').val(campo8_value);
+                } else {
+                    campos.prop("readonly", true);
+                    $(this).removeClass("bx bxs-check-square").addClass("bx bxs-edit-alt");
+
+                    var n_celdas = $(this).closest("tr");
+
+                    var n_datos = [];
+                    n_celdas.find("td").each(function () {
+                        var n_contenido = $(this).find('input').val();
+                        n_datos.push(n_contenido);
+                    });
+                    campo8_value += n_datos[4] * n_datos[5];
+                    $('#precio_del_disfraz').val(campo8_value);
+                    $(this).closest("tr").find("#Precio_Total").val(n_datos[4] * n_datos[5]);
+
+                }
+            });
+        });
+    </script>
+    <?php
+    include("bd.php");
     ?>
 </body>
-    <script src='index.js'></script>
-    
+<script src='index.js'></script>
+
 </html>
