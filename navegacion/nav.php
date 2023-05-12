@@ -16,9 +16,9 @@
                         <h1>Disfraces J'Luis</h1>
                 </div>
                 <ul class="columnas">
-                        <li class="filas"><a class="enlace" href="../Alquiler/registro_alquiler.php">Registrar
+                        <li class="filas"><a class="enlace" href="../registro/index.php">Registrar
                                         Alquiler</a></li>
-                        <li id="final" class="filas"><a class="enlace" href="../Alquiler/tabla_alquiler.php">Ver
+                        <li id="final" class="filas"><a class="enlace" href="../mostrarRegistro/reporte.php">Ver
                                         Tabla de
                                         Alquiler</a></li>
                 </ul>

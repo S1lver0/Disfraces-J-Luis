@@ -1,6 +1,6 @@
 <?php
 
-    include("conex.php");
+    include("../conectarbd.php");
     
     if (isset($_POST['registrar'])) {
         $id_c=uniqid();
