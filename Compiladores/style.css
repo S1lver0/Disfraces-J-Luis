@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     background-color: #0c1424;
 }
-h1{
+h1,h2{
     color: white;
 }
 label{
@@ -52,7 +52,8 @@ td{
     border-bottom: 1px solid  #32a1ce;
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
-    background-color: #fff;
+    background-color: #32a1ce;
+    color: #fff;
 }
 
 .encabezado2{
@@ -101,11 +102,45 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-bottom: 1px solid  #32a1ce;
     /*border-radius: 5px;*/
 }
-.boton{
+.agregar_disfraz{
+    display: flex;
     width: 100%;
-    display:flex;
-    align-items: center;
+    height: 4%;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+select{
+    outline: none;
+    color: #0c1424;
+    background-color: #32a1ce;
+}
+option{
+    color: #0c1424;
+}
+#add{
+    display: flex;
+    text-align: center;
+    border-radius: 5px;
+    height: 20%;
+    height: 40px;
+    background-color: #48e;
+	color: #fff;
+	border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    /*font-size: x-large;*/
+}
+#add:hover{
+    outline: outset;
+    outline-color: #48e;;
+    box-shadow: 0 0 4px 4px #ffffff80;
+}
+.enviar:hover{
+    outline: outset;
+    outline-color: #48e;;
+    box-shadow: 0 0 4px 4px #ffffff80;
 }
 #tabla{
     display: flex;
@@ -182,21 +217,13 @@ table input{
 	border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: larger;
 }
 
-#bot{
-	background-color: #48e;
-	color: #fff;
-	width: 35%;
-    height: 40px;
-	border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
-form{
+/*form{
     flex-direction: column;
     display: flex;
     /*align-self: center;
-    justify-content: center;*/
-}
+    justify-content: center;
+}*/

@@ -32,7 +32,7 @@
             </div>
             <div class="encabezado2">
                 <div class="cliente">
-                    <h1>Datos del Cliente</h1>
+                    <h2>Datos del Cliente</h2>
                     <br>
                     <label for="">Nombre:</label>
                     <input type="text" required name="nombre_c">
@@ -41,18 +41,17 @@
                     <input type="text" required name="apellido_c">
                     <br>
                     <label for="">DNI:</label>
-                    <input type="text" name="dni_c">
+                    <input type="text" required name="dni_c">
                     <br>
                     <label for="">Domicilio:</label>
-                    <input type="text" name="domicilio_c">
+                    <input type="text" required name="domicilio_c">
                     <br>
                     <label for="">Celular:</label>
-                    <input type="text" name="celular_c">
+                    <input type="text" required name="celular_c">
                 </div>
 
                 <div class="disfraz">
-                    <h1>Datos del Disfraz</h1>
-                    <br>
+                    <h2>Datos del Disfraz</h2>
                     <br>
                     <label for="">Nombre:</label>
                     <input class="disimput"type="text"id="in1">
@@ -60,8 +59,15 @@
                     <label for="">Tematica:</label>
                     <input class="disimput" type="text"id="in2">
                     <br>
-                    <label for="">Talla:</label>
-                    <input class="disimput" type="text" id="in3">
+                    <div>
+                        <label for="">Talla:</label>
+                        <select id="seleccionar">
+                            <option>L</option>
+                            <option>M</option>
+                            <option>S</option>
+                        </select>
+                    </div>
+                    <input class="disimput" readonly maxlength="1" type="text" id="in3">
                     <br>
                     <label for="">Cantidad:</label>
                     <input class="disimput" type="number" min="1" id="in4">
@@ -69,7 +75,11 @@
                     <label for="">Precio:</label>
                     <input class="disimput" type="number"  min="0.1"id="in5">
                     <br>
-                    <input id="add" type="button" name="agregar" value="Agregar" class="enviar"> 
+                    <div class="centrar">
+                        <input id="add" type="boton" name="agregar" value="Agregar">
+                    </div>
+                     
+                    
                 </div>
 
                 
@@ -99,7 +109,7 @@
                         </tbody>
                         <tbody>
                             </tr>
-                                <td colspan="6">Precio Total</td>
+                                <td style="text-align: right;" colspan="6">Precio Total</td>
                                 <td><input  id="precio_del_disfraz" name="Precio_dis" value=" " readonly></td>
                             </tr>
                         </tbody>
@@ -111,7 +121,10 @@
             <br>
             <br>
         </div>
+        <div class="centrar">
         <input class="enviar" type="submit" name="registrar">
+        </div>
+        
     </form>
     <br>
     <br>
@@ -119,44 +132,72 @@
     <script>
 
             var campo8_value =0;
+            const input_disfraz=document.querySelectorAll('.disimput')
+            
+            var bandera=true;
+            var bandera_edit=true;
+            function vacio_d(){
+                bandera=true;
+                for(const inputs_d of input_disfraz){
+                    if(inputs_d.value.length === 0){
+                        bandera=false;
+                    }
+                        
+                }
+                console.log(bandera)
+            }
+            
+            
             $(document).ready(function() {
                 $("#add").click(function() {
+                    vacio_d()
+                    if(bandera==false)
+                    {
+                        
+                    }else{
 
-                    var campo2_value = $('#in1').val();
-                    var campo3_value = $('#in2').val();
-                    var campo4_value = $('#in3').val();
-                    var campo5_value = $('#in4').val();
-                    var campo6_value = $('#in5').val();
-                    var campo7_value = campo5_value*campo6_value;
-                    campo8_value += campo7_value;
                     
-                    $('#precio_del_disfraz').val(campo8_value);
+                        var campo2_value = $('#in1').val();
+                        var campo3_value = $('#in2').val();
+                        var campo4_value = $('#in3').val();
+                        var campo5_value = $('#in4').val();
+                        var campo6_value = $('#in5').val();
+                        var campo7_value = campo5_value*campo6_value;
+                        campo8_value += campo7_value;
+                        
+                        $('#precio_del_disfraz').val(campo8_value);
 
-                    var html = '<tr>';
-                    html += '<td class="acciones"><i class="bx bxs-edit-alt editar-fila"></i><i class="bx bxs-message-alt-x eliminar-fila"></i></th>';
-                    
-                    html += '<td><input class="editable" name="Nombre[]" value="' + campo2_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Tematica[]" value="' + campo3_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Talla[]" value="' + campo4_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Cantidad[]" value="' + campo5_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Precio[]" value="' + campo6_value + '" readonly></td>';
-                    html += '<td><input class="editable" name="Precio_T[]" id=Precio_Total value="' + campo7_value + '" readonly></td>';
-                    html += '</tr>';
-                    $("#fields").append(html);
+                        var html = '<tr>';
+                        html += '<td class="acciones"><i class="bx bxs-edit-alt editar-fila"></i><i class="bx bxs-message-alt-x eliminar-fila"></i></th>';
+                        
+                        html += '<td><input required class="editable" name="Nombre[]" value="' + campo2_value + '" readonly></td>';
+                        html += '<td><input required class="editable" name="Tematica[]" value="' + campo3_value + '" readonly></td>';
+                        html += '<td><input required class="editable" name="Talla[]" value="' + campo4_value + '" readonly></td>';
+                        html += '<td><input required class="editable" name="Cantidad[]" value="' + campo5_value + '" readonly></td>';
+                        html += '<td><input required class="editable" name="Precio[]" value="' + campo6_value + '" readonly></td>';
+                        html += '<td><input required class="editable" name="Precio_T[]" id=Precio_Total value="' + campo7_value + '" readonly></td>';
+                        html += '</tr>';
+                        $("#fields").append(html);
 
 
-    
-                    $('#in1').val('');
-                    $('#in2').val('');
-                    $('#in3').val('');
-                    $('#in4').val('');
-                    $('#in5').val('');
-
+        
+                        $('#in1').val('');
+                        $('#in2').val('');
+                        $('#in3').val('');
+                        $('#in4').val('');
+                        $('#in5').val('');
+                        bandera=true;
+                    }
+                
                     
                 });
                 
+
+
                 $(document).on("click", ".eliminar-fila", function() {
                     
+                    
+
                     $(this).closest("tr").remove();
                     
                     var fila = $(this).closest("tr"); // Encuentra la fila más cercana
@@ -175,40 +216,67 @@
                     $(this).closest("tr").remove();
 
                 });
-                $(document).on("click", ".editar-fila", function() {
-                    var fila = $(this).closest("tr");
-                    var campos = fila.find(".editable");
-                    
-                    
+                
+            
+                    $(document).on("click", ".editar-fila", function() {
+                        const input_filas=document.querySelectorAll('.editable')
+                        function vacio_fila(){
+                            bandera_edit=true;
+                            for(const inputs_f of input_filas){
+                                if(inputs_f.value.length === 0){
+                                    bandera_edit=false;
+                                }
+                                    
+                            }
+                        }
+                        vacio_fila()
+                        console.log(bandera_edit)
+                        if(bandera_edit==true){
+                            var fila = $(this).closest("tr");
+                            var campos = fila.find(".editable");
+                                
+                            if (campos.prop("readonly")) {
+                                campos.prop("readonly", false);
+                                $(this).removeClass("bx bxs-edit-alt").addClass("bx bxs-check-square");
+                                var celdas = $(this).closest("tr");
+                                var datos = [];
+                                celdas.find("td").each(function() {
+                                    var contenido = $(this).find('input').val();  
+                                    datos.push(contenido); 
+                                });
+                                campo8_value -= datos[4]*datos[5]
 
-                    if (campos.prop("readonly")) {
-                        campos.prop("readonly", false);
-                        $(this).removeClass("bx bxs-edit-alt").addClass("bx bxs-check-square");
-                        var celdas = $(this).closest("tr");
-                        var datos = [];
-                        celdas.find("td").each(function() {
-                            var contenido = $(this).find('input').val(); 
-                            datos.push(contenido); 
-                        });
-                        campo8_value -= datos[4]*datos[5]
 
-                    $('#precio_del_disfraz').val(campo8_value);
-                    } else {
-                        campos.prop("readonly", true);
-                        $(this).removeClass("bx bxs-check-square").addClass("bx bxs-edit-alt");
-                        
-                        var n_celdas = $(this).closest("tr");
+
+
+                                console.log(bandera_edit)
+                                
+                            $('#precio_del_disfraz').val(campo8_value);
+                            } else {
+                                campos.prop("readonly", true);
+                                $(this).removeClass("bx bxs-check-square").addClass("bx bxs-edit-alt");
+                                
+                                var n_celdas = $(this).closest("tr");
+            
+                                var n_datos = [];
+                                n_celdas.find("td").each(function() {
+                                    var n_contenido = $(this).find('input').val(); 
+                                    n_datos.push(n_contenido); 
+                                });
+                                campo8_value+=n_datos[4]*n_datos[5];
+                                $('#precio_del_disfraz').val(campo8_value);
+                                $(this).closest("tr").find("#Precio_Total").val(n_datos[4]*n_datos[5]);
+                                bandera_edit=true
+                            }
+                        }
+                    });
     
-                        var n_datos = [];
-                        n_celdas.find("td").each(function() {
-                            var n_contenido = $(this).find('input').val(); 
-                            n_datos.push(n_contenido); 
-                        });
-                        campo8_value+=n_datos[4]*n_datos[5];
-                        $('#precio_del_disfraz').val(campo8_value);
-                        $(this).closest("tr").find("#Precio_Total").val(n_datos[4]*n_datos[5]);
-                        
-                    }
+                
+                const select = document.getElementById('seleccionar');
+                const input = document.getElementById('in3');
+                
+                select.addEventListener('change', function() {
+                    input.value = select.value;
                 });
             });
         </script>
