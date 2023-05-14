@@ -98,9 +98,9 @@
             $query = "INSERT INTO disfraz (Id, Nombre, Tematica, Cantidad, Precio, Talla) VALUES " . implode(", ", $values);
                     
             if (mysqli_query($conex, $query)) {
-                echo "Datos insertados correctamente";
+                //echo "Datos insertados correctamente";
             } else {
-                echo "Error disfraz al insertar datos: " . mysqli_error($conex);
+                //echo "Error disfraz al insertar datos: " . mysqli_error($conex);
             }
 
 

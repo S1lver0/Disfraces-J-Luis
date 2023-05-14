@@ -20,14 +20,14 @@
             <br>
             <div class="encabezado1">
                 <div>
-                    <label for="star">Fecha de Entrega:</label>
+                    <label for="">Fecha de Entrega:</label>
                     <br>
-                    <input id="star" type="date" name="fecha_e">
+                    <input required type="date" name="fecha_e">
                 </div>
                 <div>
-                    <label for="">Fecha de Devolucion:</label>
+                    <label  for="">Fecha de Devolucion:</label>
                     <br>
-                    <input type="date" name="fecha_d">
+                    <input required type="date" name="fecha_d">
                 </div>
             </div>
             <div class="encabezado2">
@@ -54,10 +54,10 @@
                     <h2>Datos del Disfraz</h2>
                     <br>
                     <label for="">Nombre:</label>
-                    <input class="disimput"type="text"id="in1">
+                    <input required class="disimput"type="text"id="in1">
                     <br>
                     <label for="">Tematica:</label>
-                    <input class="disimput" type="text"id="in2">
+                    <input required class="disimput" type="text"id="in2">
                     <br>
                     <div>
                         <label for="">Talla:</label>
@@ -67,13 +67,13 @@
                             <option>S</option>
                         </select>
                     </div>
-                    <input class="disimput" readonly maxlength="1" type="text" id="in3">
+                    <input required class="disimput" readonly maxlength="1" type="text" id="in3">
                     <br>
                     <label for="">Cantidad:</label>
-                    <input class="disimput" type="number" min="1" id="in4">
+                    <input required class="disimput" type="number" min="1" id="in4">
                     <br>
                     <label for="">Precio:</label>
-                    <input class="disimput" type="number"  min="0.1"id="in5">
+                    <input required class="disimput" type="number"  min="0.1"id="in5">
                     <br>
                     <div class="centrar">
                         <input id="add" type="boton" name="agregar" value="Agregar">
@@ -136,6 +136,7 @@
             
             var bandera=true;
             var bandera_edit=true;
+            var one_case=false;
             function vacio_d(){
                 bandera=true;
                 for(const inputs_d of input_disfraz){
@@ -155,7 +156,7 @@
                     {
                         
                     }else{
-
+                        one_case=true
                     
                         var campo2_value = $('#in1').val();
                         var campo3_value = $('#in2').val();
@@ -187,6 +188,13 @@
                         $('#in4').val('');
                         $('#in5').val('');
                         bandera=true;
+                    }
+                    var inputs_dsifraces = document.querySelectorAll(".disimput");
+                    
+                    if (one_case) {
+                        for (const input_t of inputs_dsifraces) {
+                            input_t.required  = false;
+                        }
                     }
                 
                     
