@@ -13,6 +13,7 @@
         ?>
         <h1 id="titulo">Registros de Alquiler</h1>
         <?php
+        error_reporting(0);
         include '../conectarbd.php';
 
         // Procesar la acción de eliminación, si se recibió un ID de registro para eliminar

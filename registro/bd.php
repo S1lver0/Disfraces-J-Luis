@@ -1,8 +1,9 @@
 <?php
 
-    include("conex.php");
+    include("../conectarbd.php");
     
     if (isset($_POST['registrar'])) {
+        error_reporting(0);
         $id_c=uniqid();
         $id_f=uniqid();
         
@@ -30,7 +31,7 @@
                 <h3 class="bad">¡Ups ha cliente ocurrido un error!</h3>
 
             <?php*/
-                    die(mysqli_error($conex));
+                    //die(mysqli_error($conex));
             }
         }   else {
                 /*?> 
@@ -53,7 +54,7 @@
                 <h3 class="bad">¡Ups  ficha ha ocurrido un error!</h3>
 
             <?php*/
-                    die(mysqli_error($conex));
+                    //die(mysqli_error($conex));
             }
 
             

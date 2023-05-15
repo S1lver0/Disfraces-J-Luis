@@ -11,6 +11,10 @@
     <title>Compiladores</title>
 </head>
 <body>
+<?php
+    include("../navegacion/nav.php");
+
+    ?>
     <form method="post" id="registro">
         <div class="pantalla">
             <br>
