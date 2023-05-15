@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", Helvetica;
+}
+body {
+  background-color: #0c1424;
+}
+
+table {
+  border: 1px solid white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  font-size: 20px;
+  text-align: left;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: black;
+  color: white;
+  padding: 20px 20px 20px 10px;
+  font-size: 25px;
+}
+
+tr:hover {
+  background-color: #0f337b;
+}
+
+.actions {
+  text-align: center;
+}
+
+#titulo {
+  display: flex;
+  justify-content: center;
+}
+
+#filtro {
+  display: flex;
+  justify-content: end;
+}
+
+#tabla {
+  display: flex;
+  justify-content: center;
+  max-height: 600px;
+  overflow-y: auto;
+  color: white;
+  width: 100%;
+  padding: 0px 50px 0px 50px;
+}
+
+#pantalla {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: #0c1424;
+}
+
+h1 {
+  color: white;
+}
+
+
+.subtitulo{
+  font-size: 20px;
+}
+.icono{
+  width: 30px;
+  height: auto;
+  margin: 0px 10px 0px 0px;
+}
+
+.Vencido{
+  background-color:rgb(56, 118, 184);
+}
+
+
+
