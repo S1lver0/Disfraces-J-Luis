@@ -10,6 +10,6 @@ $conex = new mysqli($ServerName, $Username, $Password, $NameBD);
 
 // Revisamos la Conexión MySQL
 if ($conex->connect_error) {
-    //die("Ha fallado la conexión: " . $conex->connect_error);
+    die("Ha fallado la conexión: " . $conex->connect_error);
 }
 ?>

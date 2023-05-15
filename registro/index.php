@@ -7,8 +7,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
-    <link rel="shortcut icon" href="sopas.png">
-    <title>Compiladores</title>
+    <link rel="shortcut icon" href="../img/sopas.png">
+    <title>Formulario de Alquiler</title>
 </head>
 <body>
 <?php

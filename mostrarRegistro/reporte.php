@@ -2,15 +2,17 @@
 <html>
 
 <head>
-    <title>Tabla de Atributos</title>
-    <link rel="stylesheet" href="repor.css">
+    <title>Registros de Alquiler</title>
+    <link rel="stylesheet" href="report.css">
+    <link rel="shortcut icon" href="../img/sopas.png">
 </head>
 
 <body>
+    <?php
+    include '../navegacion/nav.php';
+    ?>
     <div id="principal">
-        <?php
-        include '../navegacion/nav.php';
-        ?>
+
         <h1 id="titulo">Registros de Alquiler</h1>
         <?php
         error_reporting(0);
@@ -68,11 +70,12 @@
             }
 
         }
-
+        $boton = true; //boton generar ficha
+        
         if (isset($_GET['buscar'])) {
             $busqueda = $_GET['buscar'];
-            $sql = "SELECT cliente.Nombre AS nombre_cliente,cliente.DNI,ficha.Precio,ficha.F_Entrega,ficha.F_Devolucion,ficha.Id FROM cliente INNER JOIN ficha ON cliente.Id = ficha.Id_Cliente WHERE cliente.DNI='$busqueda'";
-
+            $sql = "SELECT cliente.Nombre AS nombre_cliente,cliente.DNI,cliente.Id AS cliente_id,ficha.Precio,ficha.F_Entrega,ficha.F_Devolucion,ficha.Id FROM cliente INNER JOIN ficha ON cliente.Id = ficha.Id_Cliente WHERE cliente.DNI='$busqueda'";
+            $boton = false; // no mostrar boton generar ficha
         } else {
             $sql = "SELECT cliente.Nombre AS nombre_cliente,cliente.DNI,cliente.Id AS cliente_id,ficha.Precio,ficha.F_Entrega,ficha.F_Devolucion,ficha.Id
         FROM ficha
@@ -102,27 +105,28 @@
 
         ?>
         <!-- Formulario de búsqueda -->
+        <div id="options">
+            <form id="busqueda" method="get" action="">
+                <h1 class='subtitulo'>Busqueda por DNI :</h1>
+                <input type="text" name="buscar" placeholder="Buscar...">
+                <button class="butons" type="submit">Buscar</button>
+                <button class="butons"><a href='reporte.php'>CancelarBusqueda</a></button>
+            </form>
 
-        <form method="get" action="">
-            <h1 class='subtitulo'>Busqueda por DNI :</h1>
-            <input type="text" name="buscar" placeholder="Buscar...">
-            <button type="submit">Buscar</button>
-            <button><a href='reporte.php'>CancelarBusqueda</a></button>
-        </form>
-
-        <?php
-        // seleccion de filtro
-        echo "<form method='post' id='filtro'>";
-        echo "<label><h1 class='subtitulo'>Filtrar por estado:</h1></label>";
-        echo "<select name='estado'>";
-        //para ver en que estado se encuentra actualmente la ficha
-        echo "<option value='todo'" . ($filtro == "" ? "selected" : "") . ">Mostrar Todo</option>";
-        echo "<option value='activo' " . ($filtro == "Activo" ? "selected" : "") . ">Activo</option>";
-        echo "<option value='vencido' " . ($filtro == "Vencido" ? "selected" : "") . ">Vencido</option>";
-        echo "</select>";
-        echo "<input type='submit' value='Filtrar'>";
-        echo "</form>";
-        ?>
+            <?php
+            // seleccion de filtro
+            echo "<form method='post' id='filtro'>";
+            echo "<label><h1 class='subtitulo'>Filtrar por estado:</h1></label>";
+            echo "<select name='estado'>";
+            //para ver en que estado se encuentra actualmente la ficha
+            echo "<option value='todo'" . ($filtro == "" ? "selected" : "") . ">Mostrar Todo</option>";
+            echo "<option value='activo' " . ($filtro == "Activo" ? "selected" : "") . ">Activo</option>";
+            echo "<option value='vencido' " . ($filtro == "Vencido" ? "selected" : "") . ">Vencido</option>";
+            echo "</select>";
+            echo "<input class='butons' type='submit' value='Filtrar'>";
+            echo "</form>";
+            ?>
+        </div>
 
 
 
@@ -189,13 +193,23 @@
                         <td id="actions">
                             <a target="_blank" href="?eliminar=<?php echo $fila['Id']; ?>"><img class="icono"
                                     src="../img/delete.png" alt="borrar"></a>
-                            <a target="_blank" href="../PDF/index.php?id=<?php echo $fila['cliente_id']; ?>"><img class="icono"
-                                    src="../img/ojo.png" alt="detalles"></a>
+                            <a target="_blank" href="../PDF/index.php?id=<?php echo $fila['cliente_id']; ?>"><img
+                                    class="icono" src="../img/ojo.png" alt="detalles"></a>
                         </td>
                     </tr>
                 <?php } ?>
             </table>
         </div>
+        <?php
+        if($boton==true&&$filtro==""){
+            echo "
+        <div id='boton_reporte'>
+            <button id='reportes' class='butons'><a rel='noopener noreferrer' target='_blank'
+                    href='../PDF/index.php'>Generar FichaPDF</a>
+            </button>
+        </div>";
+        }
+        ?>
     </div>
 
 </body>

@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica;
+    font-family: "Roboto", Helvetica;
 }
 body{
     background-color: #0c1424;
@@ -22,7 +23,8 @@ label{
 }
 td{
     color: #fff;
-    padding: 20px;
+    width: auto;
+    padding: 10px;
     border: 1px solid #32a1ce;
     border-spacing: 0;
 }
@@ -186,14 +188,13 @@ tbody{
     border-spacing: 0;
 }
 
-
-
 table input{
     font-size: medium;
     margin: 0% 0% 0% 0%;
     padding: 0%;
     background: none;
     color: white;
+    width: auto;
     border: none;
     outline: none;
 }
@@ -219,7 +220,10 @@ table input{
     cursor: pointer;
     font-size: larger;
 }
-
+.editable{
+    padding: 0px;
+    width: 70px;
+}
 
 /*form{
     flex-direction: column;
