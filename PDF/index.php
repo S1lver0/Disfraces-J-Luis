@@ -138,9 +138,9 @@ if (isset($_GET['id'])) {
     $pdf->SetTextColor(0);
     $pdf->Cell(50, 8, "Nombre", 1, 0, 'C', true);
     $pdf->Cell(30, 8, "Cantidad", 1, 0, 'C', true);
-    $pdf->Cell(30, 8, "Precio", 1, 0, 'C', true);
+    $pdf->Cell(30, 8, "Precio Unitario", 1, 0, 'C', true);
     $pdf->Cell(30, 8, "Talla", 1, 0, 'C', true);
-    $pdf->Cell(40, 8, "Precio Unitario", 1, 1, 'C', true);
+    $pdf->Cell(40, 8, "Precio Total", 1, 1, 'C', true);
 
     // Calcular el precio total
     $total = 0;
@@ -155,11 +155,11 @@ if (isset($_GET['id'])) {
         $pdf->SetX(15);
         $pdf->Cell(50, 10, $disfraz['Nombre'], 1, 0, 'C');
         $pdf->Cell(30, 10, $disfraz['Cantidad'], 1, 0, 'C');
-        $pdf->Cell(30, 10, $disfraz['Precio'], 1, 0, 'C');
+        $pdf->Cell(30, 10, $disfraz['Precio']/$disfraz["Cantidad"], 1, 0, 'C');
         $pdf->Cell(30, 10, $disfraz['Talla'], 1, 0, 'C');
-        $pdf->Cell(40, 10, $disfraz['Precio'] * $disfraz['Cantidad'], 1, 1, 'C');
+        $pdf->Cell(40, 10, $disfraz['Precio'], 1, 1, 'C');
         // Actualizar el precio total
-        $total += $disfraz['Precio'] * $disfraz['Cantidad'];
+        $total += $disfraz['Precio'];
     }
 
 
@@ -305,14 +305,17 @@ if (isset($_GET['id'])) {
         // Mostrar los disfraces del cliente actual
         // Mostrar los disfraces del cliente actual
         while ($disfraz = mysqli_fetch_assoc($resultado_disfraces)) {
+            $price=(float)$disfraz["Precio"];
+            $cant=(int)$disfraz["Cantidad"];
+            $price_unitario=$price/$cant;
             $pdf->SetX(15);
             $pdf->Cell(50, 10, $disfraz['Nombre'], 1, 0, 'C');
             $pdf->Cell(30, 10, $disfraz['Cantidad'], 1, 0, 'C');
-            $pdf->Cell(30, 10, $disfraz['Precio'], 1, 0, 'C');
+            $pdf->Cell(30, 10,$price_unitario, 1, 0, 'C');
             $pdf->Cell(30, 10, $disfraz['Talla'], 1, 0, 'C');
-            $pdf->Cell(40, 10, $disfraz['Precio'] / $disfraz['Cantidad'], 1, 1, 'C');
+            $pdf->Cell(40, 10,$price, 1, 1, 'C');
             // Actualizar el precio total
-            $total = $disfraz['Precio'];
+            $total = $total+ $price;
         }
 
 

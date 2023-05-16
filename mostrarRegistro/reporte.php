@@ -3,7 +3,7 @@
 
 <head>
     <title>Registros de Alquiler</title>
-    <link rel="stylesheet" href="report.css">
+    <link rel="stylesheet" href="reports.css">
     <link rel="shortcut icon" href="../img/sopas.png">
 </head>
 
@@ -110,7 +110,7 @@
                 <h1 class='subtitulo'>Busqueda por DNI :</h1>
                 <input type="text" name="buscar" placeholder="Buscar...">
                 <button class="butons" type="submit">Buscar</button>
-                <button class="butons"><a href='reporte.php'>CancelarBusqueda</a></button>
+                <button id="cancel" class="butons"><a href='reporte.php'>CancelarBusqueda</a></button>
             </form>
 
             <?php

@@ -1,8 +1,8 @@
 <?php
 // Declaramos las variables de conexión
-$ServerName = "saposor";
+$ServerName = "-";
 $Username = "utuvolae3umgpvfb";
-$Password = "saposor";
+$Password ="-";
 $NameBD = "bclcgxjcjrtj4pjg2pqf";
 
 // Creamos la conexión con MySQL
