@@ -142,7 +142,7 @@
             <br>
         </div>
         <div class="centrar">
-            <input class="enviar" type="submit" name="registrar">
+            <input id="intouchable" class="enviar" type="submit" name="registrar">
         </div>
 
     </form>
@@ -150,6 +150,15 @@
     <br>
 
     <script>
+        const toca = document.querySelector("#intouchable")
+
+        toca.addEventListener('click', e => {
+            if (contador > 0) {
+            } else {
+                e.preventDefault();
+                console.log("123")
+            }
+        })
 
         var campo8_value = 0;
         const input_disfraz = document.querySelectorAll('.disimput')
