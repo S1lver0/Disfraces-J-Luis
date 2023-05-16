@@ -96,7 +96,7 @@
 
                 </div>
                 <br>
-                <div class="centrar">
+                <div class="centrar" id="tablas">
 
                     <table>
                         <thead>

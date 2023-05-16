@@ -160,6 +160,8 @@ option {
 }
 .centrar {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 table {
   width: 95%;
@@ -225,7 +227,7 @@ table input {
 }
 /* CODIGO PARA RESPONSIVE MOBIL */
 #tabla{
-  overflow-x: auto;/* Hace que el contenedor tenga una barra de desplazamiento horizontal si el contenido es demasiado ancho */
+  overflow-x: scroll;/* Hace que el contenedor tenga una barra de desplazamiento horizontal si el contenido es demasiado ancho */
 }
 
 table {
@@ -235,6 +237,18 @@ th, td {
   min-width: 150px;
   padding: 10px;
 }
+@media only screen and (max-width: 480px) {
+
+  #tablas{
+    display: block;
+
+  }
+
+
+}
+
+
+
 
 
 /*form{
@@ -243,3 +257,4 @@ th, td {
     /*align-self: center;
     justify-content: center;
 }*/
+
